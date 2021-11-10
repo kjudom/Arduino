@@ -79,8 +79,10 @@ void DigitLedDisplay::printDigit(long number, byte startDigit) {
 }
 
 void DigitLedDisplay::printFloat(float f) {
-  long number = (long) (f * multiplier);
-  String figure = String(number);
+  float f2 = (long) (f * multiplier) / (1.0 * multiplier);  // round to the defined number of digits
+  String figure = String(f2);
+  figure.remove(figure.length() - numDigits - 1, 1);  // remove the dot '.'
+  
   int figureLength = figure.length();
 
   clear();
@@ -91,10 +93,7 @@ void DigitLedDisplay::printFloat(float f) {
     byte tableValue;
 
     if (figure[i] == '-') {
-      if (figureLength - i == numDigits + 1)
-        tableValue = B10000000 | pgm_read_byte_near(charTable + 10);  // the Minus sign: '-.'
-      else
-        tableValue = pgm_read_byte_near(charTable + 10);  // the Minus sign: '-'
+      tableValue = pgm_read_byte_near(charTable + 10);  // the Minus sign: '-'
     }
     else {  
       str[0] = figure[i];
@@ -102,7 +101,7 @@ void DigitLedDisplay::printFloat(float f) {
       parseInt = (int) strtol(str, NULL, 10);
       
       if (figureLength - i == numDigits + 1)
-        tableValue = B10000000 | pgm_read_byte_near(charTable + parseInt);
+        tableValue = B10000000 | pgm_read_byte_near(charTable + parseInt); // add '.'
       else
         tableValue = pgm_read_byte_near(charTable + parseInt);
     }
