@@ -18,7 +18,9 @@ LOAD :	D4
 
 
 Examples:
+
 /example    an example to display integer
+
 /Digit7Seg_Float  add method to display float
 
 ![5Digits_7-seg](https://user-images.githubusercontent.com/55360767/139589756-7f47c2d6-5067-4eab-811b-67374c10bdd4.jpg)
