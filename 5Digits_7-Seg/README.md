@@ -26,3 +26,7 @@ Examples:
 ![5Digits_7-seg](https://user-images.githubusercontent.com/55360767/139589756-7f47c2d6-5067-4eab-811b-67374c10bdd4.jpg)
 ![5Digits_7-seg_back](https://user-images.githubusercontent.com/55360767/139589765-e03400a8-4b49-4f0d-a38f-7d5d7927f911.jpg)
 ![5Digits_7-seg2](https://user-images.githubusercontent.com/55360767/139589771-29af9836-767c-4992-960e-9f888a78512d.jpg)
+
+
+https://user-images.githubusercontent.com/55360767/141606168-4d28c5d0-e6c0-4a67-ad03-701703b9168f.mp4
+
