@@ -6,7 +6,7 @@ https://github.com/ozhantr/DigitLedDisplay/
 
 Pin connections:
 
-GND		GND
+GND :		GND
 
 +5V :		+5V
 
@@ -19,9 +19,9 @@ LOAD :	D4
 
 Examples:
 
-/example    an example to display integer
+/example:    an example to display integer
 
-/Digit7Seg_Float  add method to display float
+/Digit7Seg_Float:  add method to display float
 
 ![5Digits_7-seg](https://user-images.githubusercontent.com/55360767/139589756-7f47c2d6-5067-4eab-811b-67374c10bdd4.jpg)
 ![5Digits_7-seg_back](https://user-images.githubusercontent.com/55360767/139589765-e03400a8-4b49-4f0d-a38f-7d5d7927f911.jpg)
