@@ -1,4 +1,3 @@
-// the number of floating point digits is set to 2 in "DigitLedDisplay.h"
 #include "DigitLedDisplay.h"
 
 /* Arduino Pin to Display Pin
@@ -12,7 +11,9 @@
 #define ndigits 1   // use 1 floating point digit
 
 //DigitLedDisplay ld = DigitLedDisplay(DIN, LD, CLK);   // default with 2 floating point digits
-DigitLedDisplay ld = DigitLedDisplay(DIN, LD, CLK, ndigits);  
+//DigitLedDisplay ld = DigitLedDisplay(DIN, LD, CLK, ndigits);  
+
+DigitLedDisplay ld = DigitLedDisplay(15, 22, 21, ndigits);  // test for ESP32
 
 void setup() {
 
