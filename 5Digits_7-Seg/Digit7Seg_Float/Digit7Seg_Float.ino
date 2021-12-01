@@ -5,8 +5,14 @@
    2 to DIN,
    4 to LD,
    3 to CLK */
+   
+#define DIN 2
+#define LD 4
+#define CLK 3
+#define ndigits 1   // use 1 floating point digit
 
-DigitLedDisplay ld = DigitLedDisplay(2, 4, 3);  
+//DigitLedDisplay ld = DigitLedDisplay(DIN, LD, CLK);   // default with 2 floating point digits
+DigitLedDisplay ld = DigitLedDisplay(DIN, LD, CLK, ndigits);  
 
 void setup() {
 
@@ -30,7 +36,11 @@ void loop() {
 
   // test for float 
   for (int i = -200; i < 200; i++) {
-    ld.printFloat((float)i/100);
+    //float v = (float)i/1000;  // test for 3 digits
+    //float v = (float)i/100;  // test for 2 digits
+    float v = (float)i/10;   // test for 1 digit
+    ld.printFloat(v);
+    Serial.println(v, ndigits);
     delay(25);
   }
 

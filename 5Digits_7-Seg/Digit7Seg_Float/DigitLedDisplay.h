@@ -13,8 +13,6 @@
 #include <WProgram.h>
 #endif
 
-#define numDigits 2 // the number of floating point digits
-
 // '0'...'9', '-'
 const static byte charTable [] PROGMEM = {
     B01111110,B00110000,B01101101,B01111001,B00110011,B01011011,B01011111,B01110000,B01111111,B01111011,
@@ -24,7 +22,7 @@ const static byte charTable [] PROGMEM = {
 class DigitLedDisplay
 {
 	private:
-    int multiplier = (int) pow(10, numDigits);
+    int numDigits = 2;
 		int DIN_PIN;
 		int CS_PIN;
 		int CLK_PIN;
@@ -32,6 +30,8 @@ class DigitLedDisplay
 		void table(byte address, int val);	
 	public:
 		DigitLedDisplay(int dinPin, int csPin, int clkPin);
+    DigitLedDisplay(int dinPin, int csPin, int clkPin, int ndigits);
+    void initDisplay(int dinPin, int csPin, int clkPin);
 		void setBright(int brightness);
 		void setDigitLimit(int limit);
 		void printDigit(long number, byte startDigit = 0);

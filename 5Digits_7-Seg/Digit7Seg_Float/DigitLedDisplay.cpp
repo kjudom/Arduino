@@ -6,16 +6,24 @@
 #define SHUTDOWN_ADDR	12
 #define DISPLAYTEST_ADDR 15
 
-
 DigitLedDisplay::DigitLedDisplay(int dinPin, int csPin, int clkPin) {
-	DIN_PIN = dinPin;
-	CS_PIN = csPin;
-	CLK_PIN = clkPin;
-	
-	pinMode(DIN_PIN, OUTPUT);
-	pinMode(CS_PIN, OUTPUT);
-	pinMode(CLK_PIN, OUTPUT);
-	digitalWrite(CS_PIN, HIGH);
+  initDisplay(dinPin, csPin, clkPin);
+}
+
+DigitLedDisplay::DigitLedDisplay(int dinPin, int csPin, int clkPin, int ndigits) {
+  numDigits = ndigits;
+  initDisplay(dinPin, csPin, clkPin);
+}
+
+void DigitLedDisplay::initDisplay(int dinPin, int csPin, int clkPin) {
+  DIN_PIN = dinPin;
+  CS_PIN = csPin;
+  CLK_PIN = clkPin;
+  
+  pinMode(DIN_PIN, OUTPUT);
+  pinMode(CS_PIN, OUTPUT);
+  pinMode(CLK_PIN, OUTPUT);
+  digitalWrite(CS_PIN, HIGH);
 }
 
 void DigitLedDisplay::setBright(int brightness) {
@@ -79,8 +87,7 @@ void DigitLedDisplay::printDigit(long number, byte startDigit) {
 }
 
 void DigitLedDisplay::printFloat(float f) {
-  float f2 = (long) (f * multiplier) / (1.0 * multiplier);  // round to the defined number of digits
-  String figure = String(f2);
+  String figure = String(f, numDigits);
   figure.remove(figure.length() - numDigits - 1, 1);  // remove the dot '.'
   
   int figureLength = figure.length();
